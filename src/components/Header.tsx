@@ -14,43 +14,34 @@ const Header = () => {
   }, []);
 
   return (
-    <motion.header 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'h-16 bg-white/80 backdrop-blur-xl shadow-sm border-b border-navy/5' : 'h-24 bg-transparent'
-      }`}
-    >
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled ? 'h-20 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100' : 'h-24 bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-        <div className="flex items-center gap-3 group cursor-pointer">
-          <div className="relative w-10 h-10 overflow-hidden rounded-xl bg-primary flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:scale-110">
-            <span className="relative z-10">M</span>
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent" />
+        <div className="flex items-center gap-3 cursor-pointer">
+          <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/30">
+            M
           </div>
-          <span className="text-navy font-bold text-xl tracking-tight">Monarch <span className="text-primary">Dentistry</span></span>
+          <span className="text-navy font-extrabold text-2xl tracking-tight">
+            Monarch <span className="text-primary">Dentistry</span>
+          </span>
         </div>
         
-        <nav className="hidden md:flex items-center gap-10 text-navy/70 font-medium">
+        <nav className="hidden md:flex items-center gap-10 text-navy/70 font-semibold">
           {['Experience', 'Specialties', 'Locations', 'Patient Portal'].map((item) => (
-            <a key={item} href="#" className="relative overflow-hidden group py-2">
-              <span className="relative z-10 group-hover:text-primary transition-colors duration-300">{item}</span>
-              <motion.span 
-                className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"
-                initial={{ scaleX: 0 }}
-                whileHover={{ scaleX: 1 }}
-                transition={{ duration: 0.3 }}
-              />
+            <a key={item} href="#" className="hover:text-primary transition-colors duration-300 text-sm uppercase tracking-widest">
+              {item}
             </a>
           ))}
         </nav>
 
         <Magnetic>
-          <button className="btn-premium py-2.5 px-6 text-sm">
+          <button className="btn-luxury text-sm px-6 py-3">
             Book Appointment
           </button>
         </Magnetic>
       </div>
-    </motion.header>
+    </header>
   );
 };
 

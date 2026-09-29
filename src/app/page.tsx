@@ -5,8 +5,8 @@ import TrustBadges from '@/components/TrustBadges';
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative">
-      <div className="noise-overlay" />
+    <main className="min-h-screen relative overflow-x-hidden">
+      <div className="noise" />
       <Header />
       <Hero />
       <TrustBadges />
@@ -19,7 +19,7 @@ export default function Home() {
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold">M</div>
               <span className="text-white font-bold text-xl">Monarch Dentistry</span>
             </div>
-            <p className="leading-relaxed">The pinnacle of dental luxury and clinical precision in Southern Ontario.</p>
+            <p className="leading-relaxed max-w-xs">The pinnacle of dental luxury and clinical precision in Southern Ontario.</p>
           </div>
           <div className="grid grid-cols-2 gap-8">
             <div className="flex flex-col gap-4">

@@ -5,48 +5,44 @@
 :root {
   --primary: #1BA5A5;
   --navy: #0B2A4A;
-  --lightGray: #F8FAFC;
+  --navy-light: #163d66;
+  --light-gray: #F8FAFC;
+  --white: #FFFFFF;
 }
 
 body {
   color: var(--navy);
-  background: var(--lightGray);
+  background: var(--white);
   font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.noise-overlay {
+/* Premium Noise Texture */
+.noise {
   position: fixed;
   inset: 0;
   z-index: 9999;
   pointer-events: none;
   opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-.mesh-gradient {
-  background: radial-gradient(at 0% 0%, rgba(27, 165, 165, 0.15) 0px, transparent 50%),
-              radial-gradient(at 100% 0%, rgba(11, 42, 74, 0.1) 0px, transparent 50%),
-              radial-gradient(at 50% 100%, rgba(27, 165, 165, 0.1) 0px, transparent 50%);
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.btn-premium {
-  position: relative;
-  overflow: hidden;
-  padding: 1rem 2rem;
-  border-radius: 9999px;
-  font-weight: 700;
-  transition: all 0.5s;
-  background-color: var(--primary);
-  color: white;
-  box-shadow: 0 10px 15px -3px rgba(27, 165, 165, 0.3);
+.btn-luxury {
+  @apply relative overflow-hidden px-8 py-4 rounded-full font-bold transition-all duration-300 
+         bg-primary text-white shadow-lg shadow-primary/20 hover:shadow-primary/40 
+         hover:-translate-y-0.5 active:scale-95 text-center inline-block;
 }
 
-.btn-premium:hover {
-  box-shadow: 0 20px 25px -5px rgba(27, 165, 165, 0.5);
-  transform: translateY(-4px);
-}
-
-.btn-premium:active {
-  transform: scale(0.95);
+.btn-outline-luxury {
+  @apply px-8 py-4 rounded-full font-bold transition-all duration-300 
+         border-2 border-navy text-navy hover:bg-navy hover:text-white 
+         active:scale-95 text-center inline-block;
 }
