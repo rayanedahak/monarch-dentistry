@@ -50,7 +50,7 @@ const Header = () => {
           </button>
         </Magnetic>
       </div>
-    </header>
+    </motion.header>
   );
 };
 
